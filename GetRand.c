@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include"GetRand.h"
-#define dataCnt 1000
+#define dataCnt 1000000
 
 void GetRandInt(){
     int apple;

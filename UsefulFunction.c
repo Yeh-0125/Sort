@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 1000
+#define dataCnt 1000000
 
 void swap(int *a,int *b){
     int tmp=0;
@@ -12,7 +12,7 @@ void swap(int *a,int *b){
 }
 
 void strswap(char **a,char **b){
-    char *tmp=(char *)malloc(128*sizeof(char));
+    char *tmp=(char *)malloc(16*sizeof(char));
     strcpy(tmp,*a);
     strcpy(*a,*b);
     strcpy(*b,tmp);

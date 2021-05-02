@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 1000
+#define dataCnt 10000
 
 void sMerge(char **i,char **j,char **end){
     char *A[dataCnt];
@@ -12,8 +12,8 @@ void sMerge(char **i,char **j,char **end){
     char **writer;
     writer=i;
     for(k=0;k<dataCnt;k++){
-        A[k]=(char *)malloc(128*sizeof(char));
-        B[k]=(char *)malloc(128*sizeof(char));
+        A[k]=(char *)malloc(16*sizeof(char));
+        B[k]=(char *)malloc(16*sizeof(char));
     }
     
     //抄錄到新字串
@@ -83,7 +83,7 @@ void sMergeSort(char **data,char **start,char **end){
 
 void StrMergeSort(){
     int i=0;
-    char *str=(char *)malloc(128*sizeof(char));
+    char *str=(char *)malloc(16*sizeof(char));
     char *strdata[dataCnt];
     char **StrStart;
     char **StrEnd;
@@ -91,7 +91,7 @@ void StrMergeSort(){
     sfile=fopen("dataset2.txt","r");
 
     for(i=0;i<dataCnt;i++){
-        strdata[i]=(char *)malloc(128*sizeof(char));
+        strdata[i]=(char *)malloc(16*sizeof(char));
     }
     for(i=0;i<dataCnt;i++){
         fgets(str,128,sfile);

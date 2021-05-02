@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 1000
+#define dataCnt 10000
 
 void sHeapPrintData(char **data,int idx){
     int i=0;
@@ -53,7 +53,7 @@ void sHeapSort(char **data,int len){
 
 void StrHeapSort(){
     int i=0;
-    char *str=(char *)malloc(128*sizeof(char));
+    char *str=(char *)malloc(16*sizeof(char));
     char *strdata[dataCnt];
     char **StrStart;
     char **StrEnd;
@@ -61,10 +61,10 @@ void StrHeapSort(){
     sfile=fopen("dataset2.txt","r");
 
     for(i=0;i<dataCnt;i++){
-        strdata[i]=(char *)malloc(128*sizeof(char));
+        strdata[i]=(char *)malloc(16*sizeof(char));
     }
     for(i=1;i<dataCnt;i++){
-        fgets(str,128,sfile);
+        fgets(str,16,sfile);
         renewline(str);
         strcpy(strdata[i],str);
     }
