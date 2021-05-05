@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 1000000
+#define dataCnt 10000
 
 void sHeapPrintData(char **data,int idx){
     int i=0;
@@ -69,7 +69,7 @@ void StrHeapSort(){
         strcpy(strdata[i],str);
     }
     fclose(sfile);
-    sHeapPrintData(strdata,i);
+    //sHeapPrintData(strdata,i);
     sHeapSort(strdata,i);
-    sHeapPrintData(strdata,i);
+    //sHeapPrintData(strdata,i);
 }

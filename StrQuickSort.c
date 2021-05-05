@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 1000000
+#define dataCnt 10000
 
 char **StrPartition(char **start,char **end){
     char **i;
@@ -56,9 +56,9 @@ void StrQuickSort(){
         strcpy(strdata[i],str);
     }
     fclose(sfile);
-    printStrData(strdata,i);
+    //printStrData(strdata,i);
     StrStart=strdata;
     StrEnd=&strdata[i-1];
     sQuickSort(strdata,StrStart,StrEnd);
-    printStrData(strdata,i);
+    //printStrData(strdata,i);
 }

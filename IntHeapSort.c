@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"UsefulFunction.h"
-#define dataCnt 1000000
+#define dataCnt 10000
 
 void HeapPrintData(int *data,int idx){
     int i=0;
