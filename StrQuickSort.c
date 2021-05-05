@@ -56,9 +56,9 @@ void StrQuickSort(){
         strcpy(strdata[i],str);
     }
     fclose(sfile);
-    //printStrData(strdata,i);
+    printStrData(strdata,i);
     StrStart=strdata;
     StrEnd=&strdata[i-1];
     sQuickSort(strdata,StrStart,StrEnd);
-    //printStrData(strdata,i);
+    printStrData(strdata,i);
 }

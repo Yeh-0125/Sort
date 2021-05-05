@@ -20,7 +20,7 @@ int main(){
     printf("==GetRand==\n");
     GetRandInt();
     GetRandStr();
-    	/*
+    	
     printf("==IntQuickSort==\n");
     gettimeofday(&start,NULL);
     IntQuickSort();
@@ -41,14 +41,14 @@ int main(){
     gettimeofday(&end,NULL);
     diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
     printf("use %ld microsecond\n\n",diff);
-    
+        
     printf("==StrQuickSort==\n");
     gettimeofday(&start,NULL);
     StrQuickSort();
     gettimeofday(&end,NULL);
     diff = 1000000 * (end.tv_sec-start.tv_sec)+ end.tv_usec-start.tv_usec;
     printf("use %ld microsecond\n\n",diff);
-	*/
+
     printf("==StrMergeSort==\n");
     gettimeofday(&start,NULL);
     StrMergeSort();

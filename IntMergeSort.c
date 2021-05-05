@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include"IntMergeSort.h"
 #include"UsefulFunction.h"
-#define dataCnt 10000
+#define dataCnt 1000000
 
 void Merge(int *i,int *j,int *end){
     int *A=(int *)malloc(dataCnt*sizeof(int));
