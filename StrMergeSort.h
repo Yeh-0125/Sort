@@ -1,3 +1,3 @@
-void sMerge(char **i,char **j,char **end);
-void sMergeSort(char **data,char **start,char **end);
+void sMergear(char **data,int start,int mid,int end);
+void sMergeSort(char **data,int start,int end);
 void StrMergeSort();

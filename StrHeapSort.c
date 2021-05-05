@@ -69,7 +69,7 @@ void StrHeapSort(){
         strcpy(strdata[i],str);
     }
     fclose(sfile);
-    //sHeapPrintData(strdata,i);
+    sHeapPrintData(strdata,i);
     sHeapSort(strdata,i);
-    //sHeapPrintData(strdata,i);
+    sHeapPrintData(strdata,i);
 }

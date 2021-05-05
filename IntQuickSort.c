@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include"IntQuickSort.h"
 #include"UsefulFunction.h"
-#define dataCnt 10000
+#define dataCnt 1000000
 
 int *partition(int *start,int *end){
     int *i;

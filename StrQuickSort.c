@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 10000
+#define dataCnt 1000000
 
 char **StrPartition(char **start,char **end){
     char **i;

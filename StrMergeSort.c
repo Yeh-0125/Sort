@@ -2,81 +2,53 @@
 #include<stdlib.h>
 #include<string.h>
 #include"UsefulFunction.h"
-#define dataCnt 10000
+#define dataCnt 100000
 
-void sMerge(char **i,char **j,char **end){
-    char *A[dataCnt];
-    char *B[dataCnt];
-    int k=0;
-    int idx=0;
-    char **writer;
-    writer=i;
-    for(k=0;k<dataCnt;k++){
-        A[k]=(char *)malloc(16*sizeof(char));
-        B[k]=(char *)malloc(16*sizeof(char));
+void sMerge(char **data,int start,int mid,int end){
+    char *A[mid-start+1];
+    char *B[end-mid];
+    int i=0;
+    int j=0,k=0;
+
+    for(i=0;i<(mid-start+1);i++){
+    	A[i]=(char *)malloc(16*sizeof(char));
+        A[i]=data[mid+1+i];
     }
-    
-    //抄錄到新字串
-    while(i<j){
-        strcpy(A[idx],*i);
+    for(i=0;i<(end-mid);i++){
+	B[i]=(char *)malloc(16*sizeof(char));
+	B[i]=data[mid+1+i];
+    }
+    k=start;
+    while(i<(mid-start+1) && j<(end-mid)){
+    	if(strcmp(A[i],B[j])>0){
+	    data[k]=B[j];
+	    j++;
+	}
+	else{
+	    data[k]=A[i];
+            i++;
+	}
+	k++;
+    }
+
+    while(i<(mid-start+1)){
+    	data[k]=A[i];
         i++;
-        idx++;
+	k++;
     }
-    idx=0;
-    while(j<=end){
-        strcpy(B[idx],*j);
+    while(j<(end-mid)){
+	data[k]=B[j];
         j++;
-        idx++;
-    }
-    char **aptr;
-    char **bptr;
-    aptr=A;
-    bptr=B;
-    //放回原字串
-    while(*aptr || *bptr){
-        if(**aptr=='\0'){
-            while(**bptr!='\0'){
-                strcpy(*writer,*bptr);
-                writer++;
-                bptr++;
-            }
-            break;
-        }
-        if(**bptr=='\0'){
-            while(**aptr!='\0'){
-                strcpy(*writer,*aptr);
-                writer++;
-                aptr++;
-            }
-            break;
-        }
-        if(strcmp(*aptr,*bptr)<0){
-            strcpy(*writer,*aptr);
-            aptr++;
-            writer++;
-        }
-        else{
-            strcpy(*writer,*bptr);
-            bptr++;
-            writer++;
-        }
+	k++;
     }
 }
 
-void sMergeSort(char **data,char **start,char **end){
-    if(start!=end){
-        char **middle;
-        char **ptr;
-        int i=0;
-        ptr=start;
-        while(ptr!=end){
-            i++;
-            ptr++;
-        }
-        middle=start+i/2;
+void sMergeSort(char **data,int start,int end){
+    if(start<end){
+        int middle=start+(end-start)/2;
         sMergeSort(data,start,middle);
         sMergeSort(data,middle+1,end);
-        sMerge(start,middle+1,end);
+        sMerge(data,start,middle,end);
     }
     return;
 }
@@ -85,8 +57,8 @@ void StrMergeSort(){
     int i=0;
     char *str=(char *)malloc(16*sizeof(char));
     char *strdata[dataCnt];
-    char **StrStart;
-    char **StrEnd;
+    int StrStart=0;
+    int StrEnd=0;
     FILE *sfile;
     sfile=fopen("dataset2.txt","r");
 
@@ -99,9 +71,8 @@ void StrMergeSort(){
         strcpy(strdata[i],str);
     }
     fclose(sfile);
-    //printStrData(strdata,i);
-    StrStart=strdata;
-    StrEnd=&strdata[i-1];
+    printStrData(strdata,i);
+    StrEnd=dataCnt-1;
     sMergeSort(strdata,StrStart,StrEnd);
-    //printStrData(strdata,i);
+    printStrData(strdata,i);
 }
